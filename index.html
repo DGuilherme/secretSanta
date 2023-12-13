@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Secret Santa Guessing Game</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+  <style>
+    /* Add your CSS styles for the snow effect and Christmas theme here */
+    body {
+    background-color: #f0f0f0; /* fallback color */
+    background-image: url('vintage-christmas-pattern_23-2148775540.jpg'); /* Replace with your Christmas-themed background image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  /* Styling for the riddle section */
+  #riddleContainer {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  #riddleBox {
+    background-color: rgba(23, 61, 52); /* Semi-transparent using rgba */
+    color: #9f262b; /* Text color */
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    max-width: 600px;
+    border: 4px solid #000; /* Black color outline */
+  }
+
+  #riddleText {
+    font-family: 'Lobster', cursive; /* Use the Christmas-themed font */
+    font-size: 25px;
+    line-height: 1.5;
+    margin: 0;
+    text-align: left;
+    text-align: center;
+  }
+
+  #options {
+    margin-top: 20px;
+  }
+
+  #options button {
+    background-color: #173d34; /* Dark green color */
+    color: #9f262b; /* Text color */
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    border: 2px solid #000; /* Black color outline */
+
+  }
+
+  #options button:hover {
+    background-color: #9f262b; /* Hover color */
+    color: #173d34; /* Text color on hover */
+  }
+  
+  h1 {
+    text-align: center;
+    background-color: #9f262b; /* Red color */
+    color: #173d34; /* Green color */
+    padding: 10px 20px;
+    border-radius: 15px;
+    /* Updated outline color to black */
+    border: 4px solid #000; /* Black color outline */
+    /*text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5); /* Shadow effect for letters */
+    font-family: 'Lobster', cursive; /* Use the imported font or your chosen Christmas-themed font */
+  }
+
+  /* Style the result message */
+  #result {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  </style>
+</head>
+<body>
+  <h1 id="mainTitle">Secret Santa Guessing Game</h1>
+
+  <div id="riddleContainer">
+    <div id="riddleBox">
+      <p id="riddleText">
+        Guiding quietly, with a silent might,<br>
+        Figures stand tall in shadows of light.<br>
+        Porto's pride resonates in my heart's fold,<br>
+        Whispers of triumph, stories untold.<br>
+        Silver screen fights and a timeless tale,<br>
+        Unveil my name; your Secret Santa's trail.
+      </p>
+      <div id="options">
+        <button onclick="checkAnswer('Option 1')">Miguel</button>
+        <button onclick="checkAnswer('Option 2')">Vitor</button>
+        <button onclick="checkAnswer('Option 3')">Luis</button>
+        <button onclick="checkAnswer('Option 4')">Rafael</button>
+        <button onclick="checkAnswer('Option 5')">Filipa</button>
+        <button onclick="checkAnswer('Option 6')">Silvana</button>
+        <button onclick="checkAnswer('Option 7')">João</button>
+        <button onclick="checkAnswer('Option 8')">Humberto</button>
+        <button onclick="checkAnswer('Option 9')">Bruno</button>
+        <button onclick="checkAnswer('Option 10')">Tiago</button>
+        <button onclick="checkAnswer('Option 11')">Mukti</button>
+        <button onclick="checkAnswer('Option 12')">Rui</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let isRed = true;
+
+function switchOptionColors() {
+  const optionButtons = document.querySelectorAll('#options button');
+  const redColor = '#9f262b';
+  const greenColor = '#173d34';
+
+  optionButtons.forEach(button => {
+    if (isRed) {
+      button.style.backgroundColor = greenColor;
+      button.style.color = redColor;
+    } else {
+      button.style.backgroundColor = redColor;
+      button.style.color = greenColor;
+    }
+  });
+  isRed = !isRed;
+  setTimeout(switchOptionColors, 2500); // Switch every 2 seconds
+}
+
+// Initial call to start color switch
+switchOptionColors();
+
+// Function to check the answer (You can customize this logic)
+function checkAnswer(answer) {
+  // Your answer checking logic here
+  // For now, let's just alert the chosen answer
+  alert(`You selected: ${answer}`);
+}
+
+
+    // title colors
+    document.addEventListener('DOMContentLoaded', function() {
+      let isRed = true;
+
+      function switchTitleColor() {
+        const title = document.getElementById('mainTitle');
+        if (title) {
+          if (isRed) {
+            title.style.backgroundColor = '#173d34'; // Green color
+            title.style.color = '#9f262b'; // Red color
+          } else {
+            title.style.backgroundColor = '#9f262b'; // Red color
+            title.style.color = '#173d34'; // Green color
+          }
+          isRed = !isRed;
+          setTimeout(switchTitleColor, 2000); // Switch every 2 seconds
+        }
+      }
+
+      // Initial call to start color switch
+      switchTitleColor();
+    });
+  </script>
+</body>
+</html>
